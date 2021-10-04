@@ -30,6 +30,8 @@ export default class VigenereCipheringMachine {
   }
 
   encrypt(message, key) {
+    if (arguments.length < 2 || arguments[0] == undefined || arguments[1] == undefined) throw new Error('Incorrect arguments!');
+
     const arrMessage = message.toUpperCase().split('');
     const arrKey = key.toUpperCase().split('');
     const encryptedMessage = [];
@@ -47,6 +49,8 @@ export default class VigenereCipheringMachine {
   }
 
   decrypt(message, key) {
+    if (arguments.length < 2 || arguments[0] == undefined || arguments[1] == undefined) throw new Error('Incorrect arguments!');
+
     const arrMessage = message.toUpperCase().split('');
     const arrKey = key.toUpperCase().split('');
     const decryptedMessage = [];
