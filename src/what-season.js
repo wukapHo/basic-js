@@ -14,7 +14,7 @@ import { NotImplementedError } from '../extensions/index.js';
 export default function getSeason(date) {
   if (arguments.length === 0) return 'Unable to determine the time of year!';
   if (!(date instanceof Date)) throw new Error('Invalid date!');
-  if (!Object.prototype.hasOwnProperty.call(date, 'getDay')) new Error('Invalid date!');
+  if (date.toString() !== (new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds(), date.getMilliseconds())).toString()) throw new Error('Invalid date!');
 
   let month = date.getMonth();
   if (month <= 1 || month === 11) {
